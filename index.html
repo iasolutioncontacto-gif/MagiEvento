@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Magic Eventos</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="componentes/img/icon.png">
+    <!-- Tailwind, CSS -->
+     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+        }
+        .title-font {
+            font-family: 'DM Serif Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+<!-- Navigation -->
+<nav id="navbar" 
+     class="fixed top-0 left-0 w-full z-50 bg-transparent py-4 px-6 flex justify-between items-center transition-all duration-300">
+    
+  <!-- Título para móvil -->
+  <span class="text-[var(--color-pala-text)] font-bold sm:hidden">Magic Eventos</span>
+  
+  <!-- Botón de menú para móvil -->
+  <button id="menu-button" 
+          class="sm:hidden text-[var(--color-pala-text)] focus:outline-none" 
+          onclick="toggleMobileMenu()">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+            d="M4 6h16M4 12h16m-7 6h7"></path>
+    </svg>
+  </button>
+
+  <!-- Navegación escritorio -->
+  <div class="hidden sm:flex justify-center items-center gap-4 sm:gap-8 w-full">
+    <a href="#acerca" class="text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Acerca de Nosotros</a>
+    <a href="#servicios" class="text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Servicios</a>
+    <a href="#galeria" class="text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Galería</a>
+    <a href="#testimonios" class="text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Testimonios</a>
+    <a href="#contacto" class="text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Contacto</a>
+  </div>
+</nav>
+
+    <!-- Header con imagen de fondo -->
+<header class="hidden sm:block bg-cover bg-center text-white py-32 px-6 text-center shadow-lg" 
+        style="background-image: url('componentes/img/baner3(1).png');">
+    <div class="logo-title bg-black/40 p-4 rounded-lg inline-flex items-center gap-3">
+        <img src="componentes/img/icon.png" alt="Logo" class="logo w-20 h-auto">
+        <h1 class="text-[--color-dark-nude-hover] sm:text-7xl font-extrabold">Magic Eventos</h1>
+    </div>
+</header>
+
+
+
+
+    <!-- Menú desplegable para móvil (inicialmente oculto) -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-[var(--color-light-beige)] z-40 transform -translate-y-full transition-transform duration-300 ease-in-out sm:hidden">
+        <div class="flex justify-end p-4">
+            <button class="text-[var(--color-pala-text)] text-3xl font-bold" onclick="toggleMobileMenu()">&times;</button>
+        </div>
+        <div class="flex flex-col items-center space-y-6 text-2xl mt-12">
+            <a href="#acerca" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Acerca de Nosotros</a>
+            <a href="#servicios" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Servicios</a>
+            <a href="#galeria" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Galería</a>
+            <a href="#testimonios" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Testimonios</a>
+            <a href="#contacto" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Contacto</a>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-8">
+        
+        <!-- About Us Section -->
+        <section id="acerca" class="my-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 text-[--color-pala-text]">Acerca de Nosotros ✨</h2>
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl max-w-3xl mx-auto">
+                <p class="text-gray-700 leading-relaxed text-center">
+                    En "Magic Eventos", transformamos tus sueños en celebraciones inolvidables. Con años de experiencia y una pasión inmensa por los detalles, nuestro equipo se encarga de cada aspecto de tu evento, permitiéndote disfrutar de cada instante sin preocupaciones. Desde la planificación inicial hasta el último baile, estamos contigo en cada paso del camino para asegurar que tu día especial sea exactamente como lo imaginaste.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección de Servicios con Carrusel -->
+        <section id="servicios" class="my-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 text-[--color-pala-text]">Nuestros Servicios 🎈</h2>
+            <div class="relative w-full max-w-6xl mx-auto">
+                <!-- Envoltorio de carrusel para ocultar el desbordamiento -->
+                <div class="overflow-hidden rounded-2xl">
+                    <!-- Pista de carrusel que será traducida -->
+                    <div id="carousel-track" class="flex items-stretch -mx-2">
+                        
+                        <!-- Servicio: Matrimonios -->
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-2 mb-4 ">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg h-full hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 cursor-pointer" onclick="showServiceDetails('Matrimonios')">
+                                <div class="flex items-center justify-center text-5xl mb-4 ">👰</div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900 text-center">Matrimonios</h3>
+                                <p class="text-gray-600 text-center">Planificación completa, proveedores, ambientación y protocolo para tu día especial.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Servicio: Cumpleaños -->
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg h-full hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 cursor-pointer" onclick="showServiceDetails('cumpleanos')">
+                                <div class="flex items-center justify-center text-5xl mb-4 ">🎂</div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900 text-center">Cumpleaños</h3>
+                                <p class="text-gray-600 text-center">Animación, catering, música y decoración personalizada para todas las edades.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Servicio: Bautizos -->
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg h-full hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 cursor-pointer" onclick="showServiceDetails('bautizos')">
+                                <div class="flex items-center justify-center text-5xl mb-4 ">🙏</div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900 text-center">Bautizos</h3>
+                                <p class="text-gray-600 text-center">Decoración temática, coordinación con iglesia y recepción.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Servicio: Eventos Corporativos -->
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg h-full hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 cursor-pointer" onclick="showServiceDetails('corporativos')">
+                                <div class="flex items-center justify-center text-5xl mb-4 ">💼</div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900 text-center">Eventos Corporativos</h3>
+                                <p class="text-gray-600 text-center">Organización profesional, branding, logística y presentación impecable.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Servicio: Graduaciones -->
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg h-full hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 cursor-pointer" onclick="showServiceDetails('graduaciones')">
+                                <div class="flex items-center justify-center text-5xl mb-4 ">🎓</div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900 text-center">Graduaciones</h3>
+                                <p class="text-gray-600 text-center">Organizamos la ceremonia, la fiesta y todos los detalles para una celebración de fin de etapa inolvidable. <br> (Kinder, 8vo, 4tos medios etc...)</p>
+                            </div>
+                        </div>
+
+                        <!-- Servicio: Aniversarios -->
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg h-full hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 cursor-pointer" onclick="showServiceDetails('aniversarios')">
+                                <div class="flex items-center justify-center text-5xl mb-4 ">💑</div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900 text-center">Aniversarios</h3>
+                                <p class="text-gray-600 text-center">Celebramos tu historia de amor, renovando los votos y creando un momento especial para recordar cada año.</p>
+                            </div>
+                        </div>
+                        <!--Baby Shower y Revelacion de genero-->
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg h-full hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 cursor-pointer" onclick="showServiceDetails('Baby Shower y Revelacion de genero')">
+                                <div class="flex items-center justify-center text-5xl mb-4 ">👶</div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900 text-center">Baby Shower y Revelación de Género </h3>
+                                <p class="text-gray-600 text-center">Celebra la dulce espera y el emocionante momento de revelar el género de tu bebé con una fiesta inolvidable.</p>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Carousel navigation buttons -->
+                <div class="flex justify-center mt-6 space-x-4">
+                    <button id="prev-btn" onclick="prevSlide()" class="bg-[--color-medium-nude] hover:bg-[--color-dark-nude] text-white p-2 rounded-full shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button id="next-btn" onclick="nextSlide()" class="bg-[--color-medium-nude] hover:bg-[--color-dark-nude] text-white p-2 rounded-full shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="galeria" class="my-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 text-[--color-pala-text]">Tu Historia<br>Nuestra Producción 📸</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+                <div class="div w-full h-40 sm:h-56 bg-slate-300 rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="openGalleryModal('Bautizos')"><!--<h3>Bautizos</h3>-->
+                    <img src="componentes/img/Bautizo.png" alt="Image of Bautizo" class="w-full h-full object-cover">
+                </div>
+                <div class="div w-full h-40 sm:h-56 bg-slate-300 rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="openGalleryModal('Matrimonios')"><!--<h3>Matrimonio</h3>-->
+                    <img src="https://joyaspatriciolillo.cl/wp-content/uploads/2023/12/WhatsApp-Image-2021-04-17-at-5.48.36-PM.jpeg" alt="Image of Casamiento" class="w-full h-full object-cover">
+                </div>
+                <div class="div w-full h-40 sm:h-56 bg-slate-300 rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="openGalleryModal('Cumpleanos')"><!--<h3>Cumpleaños</h3>-->
+                    <img src="https://www.shutterstock.com/image-photo/tasty-birthday-cake-on-light-600nw-2596391707.jpg" alt="Image of Cumpleaños" class="w-full h-full object-cover">
+                </div>
+                <div class="div w-full h-40 sm:h-56 bg-slate-300 rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="openGalleryModal('Corporativos')"><!--<h3>Corporativos</h3>-->
+                    <img src="https://time.ly/wp-content/uploads/2021/11/planning-corparative-events-600x400.webp" alt="Image of Corporativo" class="w-full h-full object-cover">
+                </div>
+                <div class="div w-full h-40 sm:h-56 bg-slate-300 rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="openGalleryModal('Aniversarios')"><!--<h3>Aniversarios</h3>-->
+                    <img src="componentes/img/aniversario.png" alt="Image of Aniversario" class="w-full h-full object-cover">
+                </div>
+                <div class="div w-full h-40 sm:h-56 bg-slate-300 rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="openGalleryModal('Graduaciones')"><!--<h3>Graduaciones</h3>-->
+                    <img src="componentes/img/Graduacion.png" alt="Image of Graduacion" class="w-full h-full object-cover">
+                </div>
+                <div class="div w-full h-40 sm:h-56 bg-slate-300 rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="openGalleryModal('Celebraciones')"><!--<h3>Celebraciones</h3>-->
+                    <img src="componentes/img/celebraciones.png" alt="Image of Celebración" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonios" class="my-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 text-[--color-pala-text]">Lo que Dicen Nuestros Clientes 💬</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl div">
+                    <p class="text-gray-700 italic mb-4">“Gracias a ustedes, el bautizo de mi hija fue mágico y sin estrés. ¡Cada detalle fue perfecto!”</p>
+                    <p class="text-right font-bold text-[--color-pala-text]">– Carla M.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl div">
+                    <p class="text-gray-700 italic mb-4">“Profesionales, atentos y creativos. Hicieron de nuestro matrimonio una experiencia inolvidable. 100% recomendados.”</p>
+                    <p class="text-right font-bold text-[--color-pala-text]">– Luis y Fernanda</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="my-12">
+            <div class="bg-white p-6 sm:p-12 rounded-2xl max-w-2xl mx-auto shadow-xl">
+                <div class="text-center mb-6">
+                    <h2 class="text-3xl sm:text-5xl font-bold text-[--color-pala-text] title-font">¡QUIERO PLANIFICAR UN EVENTO INOLVIDABLE!</h2>
+                    <div class="mt-4 flex justify-center items-center">
+                        <hr class="w-12 border-t-2 border-gray-400">
+                        <span class="mx-2 text-gray-500 text-2xl font-semibold">&#9829;</span>
+                        <hr class="w-12 border-t-2 border-gray-400">
+                    </div>
+                    <p class="text-gray-700 mt-4 text-center text-lg italic">Ponte en contacto con nosotros para comenzar</p>
+                </div>
+                <form id="contactForm" class="space-y-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+            <input type="text" id="nombre" name="nombre" placeholder="NOMBRE" class="input-field w-full uppercase" required>
+        </div>
+        <div>
+            <input type="text" id="apellido" name="apellido" placeholder="APELLIDO" class="input-field w-full uppercase" required>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+            <input type="tel" id="telefono" name="telefono" placeholder="TELÉFONO" class="input-field w-full uppercase" required>
+        </div>
+        <div>
+            <input type="email" id="correo" name="correo" placeholder="CORREO" class="input-field w-full uppercase" required>
+        </div>
+    </div>
+
+    <div>
+        <select id="evento-deseado" name="evento-deseado" class="input-field w-full uppercase" required>
+            <option value="">¿QUÉ DESEAS CELEBRAR?</option>
+            <option value="Matrimonios">Matrimonios</option>
+            <option value="Cumpleaños">Cumpleaños</option>
+            <option value="Bautizos">Bautizos</option>
+            <option value="Eventos Corporativos">Eventos Corporativos</option>
+            <option value="Graduaciones">Graduaciones</option>
+            <option value="Baby Shower y Revelacion de genero">Baby Shower y Revelacion de genero</option>
+        </select>
+    </div>
+
+    <div>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="MENSAJE" class="input-field w-full uppercase" required></textarea>
+    </div>
+
+    <button type="submit" class="w-full bg-[--color-dark-nude] text-[--color-light-beige] font-bold py-4 rounded-full uppercase tracking-widest hover:bg-[--color-dark-nude-hover] transition-colors duration-300 shadow-md">
+        Enviar
+    </button>
+</form>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[--color-dark-nude] text-center py-6 px-4 ">
+        <p class="text-sm text-[--color-dark-nude-hover]">&copy; IA Solution | Todos los derechos reservados</p>
+        <div class="flex justify-center items-center mt-2 space-x-4 text-lg">
+            <a href="#" class="text-[--color-dark-nude-hover] hover:text-[--color-black] hover:bg-[--color-dark-nude-hover] duration-300">Facebook</a>
+            <a href="#" class="text-[--color-dark-nude-hover] hover:text-[--color-black] hover:bg-[--color-dark-nude-hover] duration-300">Instagram</a>
+            <a href="#" class="text-[--color-dark-nude-hover] hover:text-[--color-black] hover:bg-[--color-dark-nude-hover] duration-300">TikTok</a>
+        </div>
+    </footer>
+
+    <!-- Modal de Detalles del Servicio -->
+    <div id="service-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden flex items-center justify-center p-4 z-50">
+        <div id="modal-content" class="bg-white p-8 rounded-2xl shadow-2xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
+            <button onclick="hideServiceDetails()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 font-bold text-2xl">&times;</button>
+            <h3 id="modal-title" class="text-2xl font-bold text-[--color-pala-text] mb-4"></h3>
+            <p id="modal-description" class="text-gray-700 leading-relaxed"></p>
+        </div>
+    </div>
+
+    <!-- Modal para la Galería de Fotos -->
+    <div id="gallery-modal" class="fixed inset-0 bg-gray-900 bg-opacity-90 flex items-center justify-center hidden p-4 z-50">
+        <div id="gallery-modal-content" class="relative w-full max-w-4xl mx-auto rounded-xl">
+            <button onclick="closeGalleryModal()" class="absolute top-4 right-4 text-white text-3xl font-bold p-2 leading-none hover:text-gray-300">&times;</button>
+            
+            <div class="flex items-center justify-center h-[75vh] w-full">
+                <img id="gallery-image" src="" alt="Galería de Eventos" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl">
+            </div>
+            
+            <button onclick="prevPhoto()" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-75 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button onclick="nextPhoto()" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-75 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black bg-opacity-50 px-4 py-1 rounded-full">
+                <span id="gallery-counter">1 / 5</span>
+            </div>
+        </div>
+    </div>
+<!-- Scripts al final -->
+<script src="script.js" defer></script>
+</body>
+</html>
