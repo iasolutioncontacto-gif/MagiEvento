@@ -40,7 +40,7 @@
                 'https://dulcerecuerdocl.com/wp-content/uploads/2022/10/136.png'
             ],
             'Matrimonios': [
-                'https://cdn-3.expansion.mx/dims4/default/886ddfd/2147483647/strip/true/crop/620x388+0+0/resize/1200x751!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2Fmedia%2F2009%2F10%2F01%2Frolfamiliares.jpg',
+                'img/casamiento1.png',
                 'https://www.riberadelcorneja.es/wp-content/uploads/2022/10/LorenaAntonio-715-1024x683.jpg',
                 'https://placehold.co/600x400/DCC5B6/333333?text=Casamiento+3'
 
