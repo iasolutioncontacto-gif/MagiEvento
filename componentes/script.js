@@ -33,6 +33,7 @@
         };
 
         // Objeto para la galería de imágenes
+        // Tamaño de imagenes 600x400
         const galleryData = {
             'Bautizos': [
                 'https://www.decoracionesyglobostete.com/data/4462/galerias/99558d1af4d23b088a572c9070fd0bcc799e485a.jpeg',
@@ -40,9 +41,9 @@
                 'https://dulcerecuerdocl.com/wp-content/uploads/2022/10/136.png'
             ],
             'Matrimonios': [
-                'img/casamiento1.png',
+                'https://img.freepik.com/foto-gratis/novio-que-pone-anillo-dedo-novia_1157-338.jpg?semt=ais_hybrid&w=740&q=80',
                 'https://www.riberadelcorneja.es/wp-content/uploads/2022/10/LorenaAntonio-715-1024x683.jpg',
-                'https://placehold.co/600x400/DCC5B6/333333?text=Casamiento+3'
+                'https://rodriguezmansilla.com/wp-content/uploads/2018/04/389_leti-antoine-casamiento-diferente-buenos-aires_050.jpg'
 
             ],
             'Cumpleanos': [
