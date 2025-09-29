@@ -1,0 +1,241 @@
+:root {
+      --color-light-nude: #163544;/* fondo de pagina */
+      --color-medium-nude: #00000040;/* sombra de cuadros */
+      --color-dark-nude: #696865;/* head y footer */
+      --color-dark-nude-hover: #DAA520;/* texto para footer  */
+      --color-pala-text: #000000;/* texto */
+      --color-light-beige:  #f5f2ed;/* navar texto */
+      --color-gold: #D4AF37;/*  */
+      --color-boton: #FFD700;
+      --color-black: #00000000;/*color negro para footer */
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-light-nude);
+      color: var(--color-pala-text);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: var(--color-light-beige);
+      padding: 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 3.5rem;
+      margin: 0;
+      /*color: var(--color-gold);*/
+    }
+    header nav a {
+      margin: 0 1rem;
+      color: var(--color-pala-text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    /* CSS extra */
+    .navbar-solid {
+      background-color: var(--color-medium-nude) !important;
+    }
+    /* Estilos personalizados para la barra de navegación */
+    .nav-link {
+        transition: all 0.3s ease;
+    }
+    .nav-link:hover {
+        transform: translateY(-2px);
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+    }
+    #navbar.nav-hidden {
+        top: -70px; /* ajusta según la altura real del nav */
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      color: var(--color-gold);
+      text-align: center;
+      margin-top: 2rem;
+    }
+    h3 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1rem; /* o el tamaño que prefieras */
+      color: var(rgb(0, 0, 0));
+      text-align: center;
+    }
+    /* Contenedor logo + título */
+    .logo-title {
+    display: flex;
+    align-items: center;       /* centra verticalmente */
+    justify-content: center;   /* centra horizontalmente */
+    gap: 1rem;                 /* espacio entre logo y texto */
+    flex-wrap: wrap;           /* permite que se acomode en móviles */
+    text-align: center;
+    }
+
+    /* Logo y título con misma altura */
+    .logo {
+    height: 8em;   /* escala según el tamaño de la fuente del h1 */
+    width: auto;
+    }
+
+    .logo-title h1 {
+    font-size: 3rem;   /* base */
+    margin: 0;
+    }
+
+    /* Carrusel */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-item {
+      min-width: 100%;
+      flex: 1 0 calc(100% / 1);
+      background: var(--color-dark-nude);
+      border-radius: 12px;
+      margin: 0.5rem;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    @media (min-width: 768px) {
+      .carousel-item {
+        flex: 1 0 calc(100% / 2);
+      }
+      .logo-title h1 {
+        font-size: 2rem;
+        }
+    }
+    @media (min-width: 1024px) {
+      .carousel-item {
+        flex: 1 0 calc(100% / 3);
+      }
+    }
+    @media (max-width: 480px) {   /* celulares */
+    .logo-title {
+        flex-direction: column;  /* logo arriba, texto abajo */
+    }
+
+    .logo-title h1 {
+        font-size: 1.8rem;
+    }
+    }
+    
+    .carousel-controls {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem;
+    }
+    .carousel-controls button {
+      background: var(--color-gold);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      color: rgb(241, 157, 157);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Modales */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.3s ease;
+    }
+    .modal.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      animation: zoomIn 0.3s ease-out;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal button {
+      background: var(--color-gold);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    /* Galería */
+    #gallery-modal img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    #gallery-counter {
+      margin-top: 0.5rem;
+    }
+
+    /* Formulario */
+    form {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgb(--color-medium-nude);/**/
+    }
+    form label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+      font-weight: 600;
+    }
+    form input, form select, form textarea, form button {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: inherit;
+    }
+    form button {
+      background: var(--color-gold);
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    input:invalid, textarea:invalid {
+        border: 2px solid red;
+    }
+    input:valid, textarea:valid {
+        border: 2px solid green;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-light-beige);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    footer p, footer a {
+      color: var(--color-pala-text);
+      text-decoration: none;
+    }
