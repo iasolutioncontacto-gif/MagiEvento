@@ -43,6 +43,7 @@
             ],
             'Matrimonios': [
                 '/componentes/img/casamiento1.png',
+                'https://img.freepik.com/foto-gratis/novio-que-pone-anillo-dedo-novia_1157-338.jpg?semt=ais_hybrid&w=740&q=80',
                 'https://www.riberadelcorneja.es/wp-content/uploads/2022/10/LorenaAntonio-715-1024x683.jpg',
                 'https://rodriguezmansilla.com/wp-content/uploads/2018/04/389_leti-antoine-casamiento-diferente-buenos-aires_050.jpg'
 
