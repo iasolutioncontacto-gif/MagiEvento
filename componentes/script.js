@@ -38,10 +38,11 @@
             'Bautizos': [
                 'https://www.decoracionesyglobostete.com/data/4462/galerias/99558d1af4d23b088a572c9070fd0bcc799e485a.jpeg',
                 'https://i.pinimg.com/originals/e0/54/4c/e0544c39fffb802077c679e528fe550e.jpg',
-                'https://dulcerecuerdocl.com/wp-content/uploads/2022/10/136.png'
+                'https://dulcerecuerdocl.com/wp-content/uploads/2022/10/136.png',
+                'https://i.pinimg.com/736x/03/44/e4/0344e47224c1367be914d1b9a2253f9e.jpg'
             ],
             'Matrimonios': [
-                'https://img.freepik.com/foto-gratis/novio-que-pone-anillo-dedo-novia_1157-338.jpg?semt=ais_hybrid&w=740&q=80',
+                '/componentes/img/casamiento1.png',
                 'https://www.riberadelcorneja.es/wp-content/uploads/2022/10/LorenaAntonio-715-1024x683.jpg',
                 'https://rodriguezmansilla.com/wp-content/uploads/2018/04/389_leti-antoine-casamiento-diferente-buenos-aires_050.jpg'
 
