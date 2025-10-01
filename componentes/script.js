@@ -313,11 +313,11 @@ window.addEventListener("scroll", function () {
     navbar.classList.remove("navbar-solid", "shadow-md");
   }
 
-  if (currentScroll > lastScrollTop && currentScroll > 100) {
+  /*if (currentScroll > lastScrollTop && currentScroll > 100) {
     navbar.classList.add("nav-hidden");
   } else {
     navbar.classList.remove("nav-hidden");
-  }
+  }*/
 
   lastScrollTop = currentScroll;
 });
