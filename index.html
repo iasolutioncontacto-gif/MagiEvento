@@ -26,48 +26,35 @@
 <body class="bg-gray-100">
 
 <!-- Navigation -->
-<nav id="navbar" 
-    class="fixed sm:relative top-0 left-0 w-full z-50 bg-[--color-light-beige]/80 py-4 px-6 flex justify-between items-center transition-all duration-300">
-    
+<nav id="navbar" class="fixed sm:relative top-0 left-0 w-full z-50 bg-[--color-light-beige]/80 py-4 px-6 flex justify-between items-center transition-all duration-300">
   <!-- Logo + Título para móvil -->
   <div class="flex items-center gap-2 sm:hidden bg-[--color-light-beige]/60 p-2 rounded-lg">
     <img src="componentes/img/icon.png" alt="Logo" class="w-8 h-8">
     <span class="text-[var(--color-dark-nude-hover)] font-bold">Magic Eventos</span>
   </div>
-  
+
   <!-- Botón de menú para móvil -->
-  <button id="menu-button" 
-          class="sm:hidden text-[var(--color-pala-text)] focus:outline-none" 
-          onclick="toggleMobileMenu()">
-
-    <!-- Ícono hamburguesa -->
+  <button id="menu-button" class="sm:hidden text-[var(--color-pala-text)] focus:outline-none" onclick="toggleMobileMenu()">
     <svg id="icon-hamburger" class="w-8 h-8 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-            d="M4 6h16M4 12h16m-7 6h7"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
     </svg>
-
-    <!-- Ícono cerrar (X) -->
     <svg id="icon-close" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-            d="M6 18L18 6M6 6l12 12"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
     </svg>
-
   </button>
 
   <!-- Navegación escritorio -->
   <div class="hidden sm:flex justify-center items-center gap-4 sm:gap-8 w-full">
-    <a href="#acerca" class="text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Acerca de Nosotros</a>
-    <a href="#servicios" class="text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Servicios</a>
-    <a href="#galeria" class="text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Galería</a>
-    <a href="#testimonios" class="text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Testimonios</a>
-    <a href="#contacto" class="text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Contacto</a>
+    <a href="#acerca" class="nav-link text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold rounded-lg py-1 px-3">Acerca de Nosotros</a>
+    <a href="#servicios" class="nav-link text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold rounded-lg py-1 px-3">Servicios</a>
+    <a href="#galeria" class="nav-link text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold rounded-lg py-1 px-3">Galería</a>
+    <a href="#testimonios" class="nav-link text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold rounded-lg py-1 px-3">Testimonios</a>
+    <a href="#contacto" class="nav-link text-[var(--color-light-beige)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold rounded-lg py-1 px-3">Contacto</a>
   </div>
 </nav>
 
 <!-- Menú desplegable para móvil -->
-<div id="mobile-menu" 
-    class="fixed top-[64px] left-0 w-full h-[calc(100%-64px)] bg-[--color-light-beige] z-40 transform -translate-y-full transition-transform duration-300 ease-in-out sm:hidden">
-
+<div id="mobile-menu" class="fixed top-[64px] left-0 w-full h-[calc(100%-64px)] bg-[--color-light-beige] z-40 transform -translate-y-full transition-transform duration-300 ease-in-out sm:hidden">
   <div class="flex flex-col items-center space-y-6 text-2xl mt-12">
     <a href="#acerca" class="text-[--color-deep-brown] hover:text-[--color-dark-nude] font-semibold py-2" onclick="toggleMobileMenu()">Acerca de Nosotros</a>
     <a href="#servicios" class="text-[--color-deep-brown] hover:text-[--color-dark-nude] font-semibold py-2" onclick="toggleMobileMenu()">Servicios</a>
@@ -259,45 +246,34 @@
                     </div>
                     <p class="text-gray-700 mt-4 text-center text-lg italic">Ponte en contacto con nosotros para comenzar</p>
                 </div>
-                <form id="contactForm" class="space-y-6">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-            <input type="text" id="nombre" name="nombre" placeholder="NOMBRE" class="input-field w-full uppercase" required>
-        </div>
-        <div>
-            <input type="text" id="apellido" name="apellido" placeholder="APELLIDO" class="input-field w-full uppercase" required>
-        </div>
-    </div>
+                <form id="contactForm">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" required>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-            <input type="tel" id="telefono" name="telefono" placeholder="TELÉFONO" class="input-field w-full uppercase" required>
-        </div>
-        <div>
-            <input type="email" id="correo" name="correo" placeholder="CORREO" class="input-field w-full uppercase" required>
-        </div>
-    </div>
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" required>
 
-    <div>
-        <select id="evento-deseado" name="evento-deseado" class="input-field w-full uppercase" required>
-            <option value="">¿QUÉ DESEAS CELEBRAR?</option>
-            <option value="Matrimonios">Matrimonios</option>
-            <option value="Cumpleaños">Cumpleaños</option>
-            <option value="Bautizos">Bautizos</option>
-            <option value="Eventos Corporativos">Eventos Corporativos</option>
-            <option value="Graduaciones">Graduaciones</option>
-            <option value="Baby Shower y Revelacion de genero">Baby Shower y Revelacion de genero</option>
-        </select>
-    </div>
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" required>
 
-    <div>
-        <textarea id="mensaje" name="mensaje" rows="4" placeholder="MENSAJE" class="input-field w-full uppercase" required></textarea>
-    </div>
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" required>
 
-    <button type="submit" class="w-full bg-[--color-dark-nude] text-[--color-light-beige] font-bold py-4 rounded-full uppercase tracking-widest hover:bg-[--color-dark-nude-hover] transition-colors duration-300 shadow-md">
-        Enviar
-    </button>
-</form>
+                    <label for="evento-deseado">Tipo de evento</label>
+                    <select id="evento-deseado" name="evento-deseado" class="input-field w-full uppercase" required>
+                        <option value="">¿QUÉ DESEAS CELEBRAR?</option>
+                        <option value="Matrimonios">Matrimonios</option>
+                        <option value="Cumpleaños">Cumpleaños</option>
+                        <option value="Bautizos">Bautizos</option>
+                        <option value="Eventos Corporativos">Eventos Corporativos</option>
+                        <option value="Graduaciones">Graduaciones</option>
+                        <option value="Baby Shower y Revelacion de genero">Baby Shower y Revelacion de genero</option>
+                    required></select>
+
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" required></textarea>
+                <button type="submit">Enviar por WhatsApp</button>
+                </form>
             </div>
         </section>
 

@@ -89,225 +89,250 @@
             window.addEventListener('resize', initCarousel);
         });
 
-        // ========================
-        // Funciones del Carrousel
-        // ========================
-        function initCarousel() {
-            const carouselTrack = document.getElementById('carousel-track');
-            slideCount = carouselTrack.children.length;
-            slidesPerView = getSlidesPerView();
-            currentSlide = 0;
-            updateCarousel();
-        }
-
-        function getSlidesPerView() {
-            if (window.innerWidth >= 1024) return 3; // lg
-            if (window.innerWidth >= 768) return 2;  // md
-            return 1; // mobile
-        }
-        
-        function nextSlide() {
-            if (currentSlide < slideCount - slidesPerView) {
-                currentSlide++;
-                updateCarousel();
-            }
-        }
-        
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateCarousel();
-            }
-        }
-
-        function updateCarousel() {
-            const carouselTrack = document.getElementById('carousel-track');
-            const offset = -currentSlide * (100 / slidesPerView);
-            carouselTrack.style.transform = `translateX(${offset}%)`;
-
-            document.getElementById('prev-btn').disabled = (currentSlide === 0);
-            document.getElementById('next-btn').disabled = (currentSlide >= slideCount - slidesPerView);
-        }
-
-        // ========================
-        // Funciones de Modales de Servicio
-        // ========================
-        function showServiceDetails(serviceId) {
-            const service = serviceData[serviceId];
-            if (service) {
-                document.getElementById('modal-title').innerText = service.title;
-                document.getElementById('modal-description').innerText = service.description;
-                const modal = document.getElementById('service-modal');
-                modal.classList.remove('hidden');
-                setTimeout(() => {
-                    document.getElementById('modal-content').classList.remove('scale-95', 'opacity-0');
-                    document.getElementById('modal-content').classList.add('scale-100', 'opacity-100');
-                }, 10);
-            }
-        }
-
-        function hideServiceDetails() {
-            const modal = document.getElementById('service-modal');
-            document.getElementById('modal-content').classList.remove('scale-100', 'opacity-100');
-            document.getElementById('modal-content').classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-        }
-
-        // ========================
-        // Funciones de Galería de Fotos
-        // ========================
-        function openGalleryModal(category) {
-            if (galleryData[category] && galleryData[category].length > 0) {
-                currentGalleryCategory = category;
-                currentGalleryIndex = 0;
-                updateGalleryModal();
-                const modal = document.getElementById('gallery-modal');
-                modal.classList.remove('hidden');
-            }
-        }
-
-        function closeGalleryModal() {
-            const modal = document.getElementById('gallery-modal');
-            modal.classList.add('hidden');
-        }
-
-        function nextPhoto() {
-            const images = galleryData[currentGalleryCategory];
-            if (currentGalleryIndex < images.length - 1) {
-                currentGalleryIndex++;
-                updateGalleryModal();
-            }
-        }
-
-        function prevPhoto() {
-            if (currentGalleryIndex > 0) {
-                currentGalleryIndex--;
-                updateGalleryModal();
-            }
-        }
-
-        function updateGalleryModal() {
-            const images = galleryData[currentGalleryCategory];
-            const imgElement = document.getElementById('gallery-image');
-            imgElement.src = images[currentGalleryIndex];
-            document.getElementById('gallery-counter').innerText = `${currentGalleryIndex + 1} / ${images.length}`;
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', validateAndSend);
-            }
-        });
-        // ========================
-        // Funciones de Contacto
-        // ========================
-        function populateContactForm() {
-            // Código para rellenar el select de eventos
-            const selectElement = document.getElementById('evento');
-            if (!selectElement) return;
-
-            for (const key in serviceData) {
-                if (serviceData.hasOwnProperty(key)) {
-                    const option = document.createElement('option');
-                    option.value = key;
-                    option.text = serviceData[key].title.replace(/[\uD800-\uDBFF\uDC00-\uDFFF]/g, '').trim();
-                    selectElement.appendChild(option);
-                }
-            }
-        }
-
-        // Esta es la única función que tu formulario necesita llamar
-        function sendToWhatsApp(event) {
-            event.preventDefault();
-
-            // Obtener los valores de los campos
-            const nombre = document.getElementById('nombre').value.trim();
-            const apellido = document.getElementById('apellido').value.trim();
-            const telefono = document.getElementById('telefono').value.trim();
-            const correo = document.getElementById('correo').value.trim();
-            const evento = document.getElementById('evento-deseado').value.trim();
-            const mensaje = document.getElementById('mensaje').value.trim();
-
-            // Regex para validación
-            const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const phoneRegex = /^\+?\d{8,15}$/;
-
-            // 1. Validar que los campos no estén vacíos
-            if (!nombre || !apellido || !telefono || !correo || !evento || !mensaje) {
-                alert('Por favor, complete todos los campos obligatorios del formulario.');
-                return; // Detiene la función aquí
-            }
-
-            // 2. Validar el formato de los campos
-            if (!nameRegex.test(nombre) || !nameRegex.test(apellido)) {
-                alert('El nombre y apellido solo deben contener letras y espacios.');
-                return;
-            }
-
-            if (!phoneRegex.test(telefono)) {
-                alert('Por favor, ingrese un número de teléfono válido.');
-                return;
-            }
-
-            if (!emailRegex.test(correo)) {
-                alert('Por favor, ingrese una dirección de correo electrónico válida.');
-                return;
-            }
-
-            // Si todas las validaciones pasan, se procede a enviar el mensaje
-            const whatsappNumber = '56973553247';
-            const eventoSeleccionado = serviceData[evento]
-                ? serviceData[evento].title.replace(/[\uD800-\uDBFF\uDC00-\uDFFF]/g, '').trim()
-                : 'No especificado';
-
-            const whatsappMessage = `¡Hola! Soy ${nombre} ${apellido}. Quiero planificar mi evento.
-            
-            Tipo de evento: ${eventoSeleccionado}
-            Mensaje: ${mensaje}
-                
-            Por favor, contáctenme:
-            Teléfono: ${telefono}
-            Correo: ${correo}`;
-
-                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-                window.open(whatsappUrl, '_blank');
-            }
-
-        // ========================
-// Funciones de Navegación
 // ========================
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const hamburger = document.getElementById('icon-hamburger');
-    const closeIcon = document.getElementById('icon-close');
+// Funciones del Carrusel
+// ========================
+function initCarousel() {
+  const carouselTrack = document.getElementById('carousel-track');
+  slideCount = carouselTrack.children.length;
+  slidesPerView = getSlidesPerView();
+  currentSlide = 0;
+  updateCarousel();
+}
 
-    if (menu.classList.contains('-translate-y-full')) {
-        // abrir menú
-        menu.classList.remove('-translate-y-full');
-        document.body.style.overflow = 'hidden';
-        hamburger.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-    } else {
-        // cerrar menú
-        menu.classList.add('-translate-y-full');
-        document.body.style.overflow = '';
-        hamburger.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-    }
-    menu.classList.toggle('active');
+function getSlidesPerView() {
+  if (window.innerWidth >= 1024) return 3;
+  if (window.innerWidth >= 768) return 2;
+  return 1;
+}
+
+function nextSlide() {
+  if (currentSlide < slideCount - slidesPerView) {
+    currentSlide++;
+    updateCarousel();
+  }
+}
+
+function prevSlide() {
+  if (currentSlide > 0) {
+    currentSlide--;
+    updateCarousel();
+  }
+}
+
+function updateCarousel() {
+  const carouselTrack = document.getElementById('carousel-track');
+  const offset = -currentSlide * (100 / slidesPerView);
+  carouselTrack.style.transform = `translateX(${offset}%)`;
+
+  document.getElementById('prev-btn').disabled = (currentSlide === 0);
+  document.getElementById('next-btn').disabled = (currentSlide >= slideCount - slidesPerView);
 }
 
 // ========================
-// Efecto de scroll
+// Modales de Servicio
 // ========================
-window.addEventListener("scroll", function () {
-    const navbar = document.getElementById("navbar");
-    if (window.scrollY > 50) {
-        navbar.classList.add("navbar-solid", "shadow-md");
-    } else {
-        navbar.classList.remove("navbar-solid", "shadow-md");
+function showServiceDetails(serviceId) {
+  const service = serviceData[serviceId];
+  if (service) {
+    document.getElementById('modal-title').innerText = service.title;
+    document.getElementById('modal-description').innerText = service.description;
+    const modal = document.getElementById('service-modal');
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+      document.getElementById('modal-content').classList.remove('scale-95', 'opacity-0');
+      document.getElementById('modal-content').classList.add('scale-100', 'opacity-100');
+    }, 10);
+  }
+}
+
+function hideServiceDetails() {
+  const modal = document.getElementById('service-modal');
+  document.getElementById('modal-content').classList.remove('scale-100', 'opacity-100');
+  document.getElementById('modal-content').classList.add('scale-95', 'opacity-0');
+  setTimeout(() => {
+    modal.classList.add('hidden');
+  }, 300);
+}
+
+// ========================
+// Galería de Fotos
+// ========================
+function openGalleryModal(category) {
+  if (galleryData[category] && galleryData[category].length > 0) {
+    currentGalleryCategory = category;
+    currentGalleryIndex = 0;
+    updateGalleryModal();
+    document.getElementById('gallery-modal').classList.remove('hidden');
+  }
+}
+
+function closeGalleryModal() {
+  document.getElementById('gallery-modal').classList.add('hidden');
+}
+
+function nextPhoto() {
+  const images = galleryData[currentGalleryCategory];
+  if (currentGalleryIndex < images.length - 1) {
+    currentGalleryIndex++;
+    updateGalleryModal();
+  }
+}
+
+function prevPhoto() {
+  if (currentGalleryIndex > 0) {
+    currentGalleryIndex--;
+    updateGalleryModal();
+  }
+}
+
+function updateGalleryModal() {
+  const images = galleryData[currentGalleryCategory];
+  const imgElement = document.getElementById('gallery-image');
+  imgElement.src = images[currentGalleryIndex];
+  document.getElementById('gallery-counter').innerText = `${currentGalleryIndex + 1} / ${images.length}`;
+}
+
+// Navegación con teclado en galería
+document.addEventListener("keydown", (e) => {
+  const modal = document.getElementById("gallery-modal");
+  if (modal.classList.contains("hidden")) return;
+
+  if (e.key === "Escape") closeGalleryModal();
+  if (e.key === "ArrowRight") nextPhoto();
+  if (e.key === "ArrowLeft") prevPhoto();
+});
+
+// ========================
+// Formulario de Contacto
+// ========================
+function populateContactForm() {
+  const selectElement = document.getElementById('evento');
+  if (!selectElement) return;
+
+  for (const key in serviceData) {
+    if (serviceData.hasOwnProperty(key)) {
+      const option = document.createElement('option');
+      option.value = key;
+      option.text = serviceData[key].title.replace(/[\uD800-\uDBFF\uDC00-\uDFFF]/g, '').trim();
+      selectElement.appendChild(option);
     }
+  }
+}
+
+function sendToWhatsApp(event) {
+  event.preventDefault();
+
+  const nombre = document.getElementById('nombre').value.trim();
+  const apellido = document.getElementById('apellido').value.trim();
+  const telefono = document.getElementById('telefono').value.trim();
+  const correo = document.getElementById('correo').value.trim();
+  const evento = document.getElementById('evento-deseado').value.trim();
+  const mensaje = document.getElementById('mensaje').value.trim();
+
+  const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\+?\d{8,15}$/;
+
+  if (!nombre || !apellido || !telefono || !correo || !evento || !mensaje) {
+    alert('Por favor, complete todos los campos obligatorios del formulario.');
+    return;
+  }
+
+  if (!nameRegex.test(nombre) || !nameRegex.test(apellido)) {
+    alert('El nombre y apellido solo deben contener letras y espacios.');
+    return;
+  }
+
+  if (!phoneRegex.test(telefono)) {
+    alert('Por favor, ingrese un número de teléfono válido.');
+    return;
+  }
+
+  if (!emailRegex.test(correo)) {
+    alert('Por favor, ingrese una dirección de correo electrónico válida.');
+    return;
+  }
+
+  const whatsappNumber = '56973553247';
+  const eventoSeleccionado = serviceData[evento]
+    ? serviceData[evento].title.replace(/[\uD800-\uDBFF\uDC00-\uDFFF]/g, '').trim()
+    : 'No especificado';
+
+  const whatsappMessage = `¡Hola! Soy ${nombre} ${apellido}. Quiero planificar mi evento.
+
+Tipo de evento: ${eventoSeleccionado}
+Mensaje: ${mensaje}
+
+Por favor, contáctenme:
+Teléfono: ${telefono}
+Correo: ${correo}`;
+
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  window.open(whatsappUrl, '_blank');
+}
+
+// ========================
+// Navegación móvil
+// ========================
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('icon-hamburger');
+  const closeIcon = document.getElementById('icon-close');
+
+  const isClosed = menu.classList.contains('-translate-y-full');
+
+  if (isClosed) {
+    menu.classList.remove('-translate-y-full');
+    menu.classList.add('translate-y-0');
+    document.body.style.overflow = 'hidden';
+    hamburger.classList.add('hidden');
+    closeIcon.classList.remove('hidden');
+  } else {
+    menu.classList.add('-translate-y-full');
+    menu.classList.remove('translate-y-0');
+    document.body.style.overflow = '';
+    hamburger.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+  }
+
+  menu.classList.toggle('active');
+}
+
+// ========================
+// Efecto de scroll en navbar
+// ========================
+let lastScrollTop = 0;
+window.addEventListener("scroll", function () {
+  const navbar = document.getElementById("navbar");
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > 50) {
+    navbar.classList.add("navbar-solid", "shadow-md");
+  } else {
+    navbar.classList.remove("navbar-solid", "shadow-md");
+  }
+
+  if (currentScroll > lastScrollTop && currentScroll > 100) {
+    navbar.classList.add("nav-hidden");
+  } else {
+    navbar.classList.remove("nav-hidden");
+  }
+
+  lastScrollTop = currentScroll;
+});
+
+// ========================
+// Inicialización
+// ========================
+document.addEventListener('DOMContentLoaded', () => {
+  initCarousel();
+  populateContactForm();
+
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', sendToWhatsApp);
+  }
+
+  window.addEventListener('resize', initCarousel);
 });
