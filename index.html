@@ -82,13 +82,23 @@
             <button class="text-[var(--color-pala-text)] text-3xl font-bold" onclick="toggleMobileMenu()">&times;</button>
         </div>
         <div class="flex flex-col items-center space-y-6 text-2xl mt-12">
-            <a href="#acerca" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Acerca de Nosotros</a>
-            <a href="#servicios" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Servicios</a>
-            <a href="#galeria" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Galería</a>
-            <a href="#testimonios" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Testimonios</a>
-            <a href="#contacto" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Contacto</a>
         </div>
     </div>
+
+    <!-- Menú desplegable para móvil (inicialmente oculto) -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-[var(--color-light-beige)] z-40 transform -translate-y-full transition-transform duration-300 ease-in-out sm:hidden">
+    <div class="flex justify-end p-4">
+        <button class="text-[var(--color-pala-text)] text-3xl font-bold" onclick="toggleMobileMenu()">&times;</button>
+    </div>
+    <div class="flex flex-col items-center space-y-6 text-2xl mt-12">
+        <a href="#acerca" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Acerca de Nosotros</a>
+        <a href="#servicios" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Servicios</a>
+        <a href="#galeria" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Galería</a>
+        <a href="#testimonios" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Testimonios</a>
+        <a href="#contacto" class="text-[var(--color-pala-text)] hover:bg-[var(--color-medium-nude)] hover:text-white font-semibold transition-colors duration-300 rounded-lg py-1 px-3">Contacto</a>
+    </div>
+    </div>
+
 
     <main class="container mx-auto px-4 py-8">
         
