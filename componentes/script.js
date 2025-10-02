@@ -49,9 +49,9 @@
 
             ],
             'Cumpleanos': [
-                'https://placehold.co/600x400/DCC5B6/333333?text=Cumpleaños+1',
-                'https://placehold.co/600x400/DCC5B6/333333?text=Cumpleaños+2',
-                'https://placehold.co/600x400/DCC5B6/333333?text=Cumpleaños+3'
+                'componentes/img/menorde15.png',
+                'componentes/img/mis15.png',
+                'componentes/img/mayores a 15.png'
             ],
             'Corporativos': [
                 'https://eventosbcn.com/wp-content/uploads/2022/04/four-smiling-business-people-at-buffet-table-scaled.jpg',
