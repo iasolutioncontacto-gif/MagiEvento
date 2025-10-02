@@ -55,8 +55,8 @@
             ],
             'Corporativos': [
                 'componentes/img/servicios/Corporativos/1.png',
-                'componentes/img/servicios/Corporativos/2.jpg',
-                'componentes/img/servicios/Corporativos/3.png'
+                'componentes/img/servicios/Corporativos/2.png',
+                'componentes/img/servicios/Corporativos/3.jpg'
             ],
             
             'Aniversarios': [
@@ -65,9 +65,9 @@
                 'componentes/img/servicios/Aniversarios/3.png',
             ],
             'Graduaciones': [
-                'componentes/img/servicios/Gradaciones/1.png',
-                'componentes/img/servicios/Gradaciones/2.png',
-                'componentes/img/servicios/Gradaciones/3.png'
+                'componentes/img/servicios/Graduaciones/1.png',
+                'componentes/img/servicios/Graduaciones/2.png',
+                'componentes/img/servicios/Graduaciones/3.png'
             ],
             'Celebraciones': [
                 'componentes/img/servicios/celebraciones/1.png',
