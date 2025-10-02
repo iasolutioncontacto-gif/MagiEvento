@@ -36,43 +36,43 @@
         // Tamaño de imagenes 600x400
         const galleryData = {
             'Bautizos': [
-                'https://www.decoracionesyglobostete.com/data/4462/galerias/99558d1af4d23b088a572c9070fd0bcc799e485a.jpeg',
-                'https://i.pinimg.com/originals/e0/54/4c/e0544c39fffb802077c679e528fe550e.jpg',
-                'https://dulcerecuerdocl.com/wp-content/uploads/2022/10/136.png',
-                'https://i.pinimg.com/736x/03/44/e4/0344e47224c1367be914d1b9a2253f9e.jpg'
+              'componentes/img/servicios/Bautizos/1.jpeg',
+              'componentes/img/servicios/Bautizos/2.jpg',
+              'componentes/img/servicios/Bautizos/3.png',
+              'componentes/img/servicios/Bautizos/4.jpg'
             ],
             'Matrimonios': [
-                'componentes/img/casamiento1.png',
-                'https://img.freepik.com/foto-gratis/novio-que-pone-anillo-dedo-novia_1157-338.jpg?semt=ais_hybrid&w=740&q=80',
-                'https://www.riberadelcorneja.es/wp-content/uploads/2022/10/LorenaAntonio-715-1024x683.jpg',
-                'https://rodriguezmansilla.com/wp-content/uploads/2018/04/389_leti-antoine-casamiento-diferente-buenos-aires_050.jpg'
+                'componentes/img/servicios/Matrimonios/1.png',
+                'componentes/img/servicios/Matrimonios/2.jpg',
+                'componentes/img/servicios/Matrimonios/3.jpg',
+                'componentes/img/servicios/Matrimonios/4.jpg',
 
             ],
             'Cumpleanos': [
-                'componentes/img/menorde15.png',
-                'componentes/img/mis15.png',
-                'componentes/img/mayores a 15.png'
+                'componentes/img/servicios/Cumpleaños/1.png',
+                'componentes/img/servicios/Cumpleaños/2.png',
+                'componentes/img/servicios/Cumpleaños/3.png',
             ],
             'Corporativos': [
-                'https://eventosbcn.com/wp-content/uploads/2022/04/four-smiling-business-people-at-buffet-table-scaled.jpg',
-                'componentes/img/',
-                'componentes/img/'
+                'componentes/img/servicios/Corporativos/1.png',
+                'componentes/img/servicios/Corporativos/2.jpg',
+                'componentes/img/servicios/Corporativos/3.png'
             ],
             
             'Aniversarios': [
-                'https://adrahostel.com/wp-content/uploads/elementor/thumbs/pedida_de_mano_antigua-r764di0kwsapzd491tlsp5d7cspyne8shhnh9w3p28.jpg',
-                'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5wRWrWt4FpQunV-0c8t4DraYQeOOIZEbxzhgkAVBiWvY4YY3yGRn6scCMWLHLdJLXObxYtaBTt3icsPaII7rX6F2VxPkFDZSGU-3Gh3pexpqtKd0hjVDb0gKSWI5HFaWLmRFo3PxaGxZp/s640/C%25C3%25B3mo-organizar-despedida-de-soltera.jpg',
-                'componentes/img/'
+                'componentes/img/servicios/Aniversarios/1.jpg',
+                'componentes/img/servicios/Aniversarios/2.jpg',
+                'componentes/img/servicios/Aniversarios/3.png',
             ],
             'Graduaciones': [
-                'componentes/img/',
-                'componentes/img/',
-                'componentes/img/'
+                'componentes/img/servicios/Gradaciones/1.png',
+                'componentes/img/servicios/Gradaciones/2.png',
+                'componentes/img/servicios/Gradaciones/3.png'
             ],
             'Celebraciones': [
-                'componentes/img/',
-                'componentes/img/',
-                'componentes/img/'
+                'componentes/img/servicios/celebraciones/1.png',
+                'componentes/img/servicios/celebraciones/2.png',
+                'componentes/img/servicios/celebraciones/3.png'
             ]
         };
 
