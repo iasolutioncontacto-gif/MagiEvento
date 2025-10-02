@@ -55,24 +55,24 @@
             ],
             'Corporativos': [
                 'https://eventosbcn.com/wp-content/uploads/2022/04/four-smiling-business-people-at-buffet-table-scaled.jpg',
-                'https://placehold.co/600x400/DCC5B6/333333?text=Corporativo+2',
-                'https://placehold.co/600x400/DCC5B6/333333?text=Corporativo+3'
+                'componentes/img/',
+                'componentes/img/'
             ],
             
             'Aniversarios': [
                 'https://adrahostel.com/wp-content/uploads/elementor/thumbs/pedida_de_mano_antigua-r764di0kwsapzd491tlsp5d7cspyne8shhnh9w3p28.jpg',
                 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5wRWrWt4FpQunV-0c8t4DraYQeOOIZEbxzhgkAVBiWvY4YY3yGRn6scCMWLHLdJLXObxYtaBTt3icsPaII7rX6F2VxPkFDZSGU-3Gh3pexpqtKd0hjVDb0gKSWI5HFaWLmRFo3PxaGxZp/s640/C%25C3%25B3mo-organizar-despedida-de-soltera.jpg',
-                'https://placehold.co/600x400/DCC5B6/333333?text=Aniversario+3'
+                'componentes/img/'
             ],
             'Graduaciones': [
-                'https://placehold.co/600x400/DCC5B6/333333?text=Graduación+1',
-                'https://placehold.co/600x400/DCC5B6/333333?text=Graduación+2',
-                'https://placehold.co/600x400/DCC5B6/333333?text=Graduación+3'
+                'componentes/img/',
+                'componentes/img/',
+                'componentes/img/'
             ],
             'Celebraciones': [
-                'https://placehold.co/600x400/DCC5B6/333333?text=Celebración+1',
-                'https://placehold.co/600x400/DCC5B6/333333?text=Celebración+2',
-                'https://placehold.co/600x400/DCC5B6/333333?text=Celebración+3'
+                'componentes/img/',
+                'componentes/img/',
+                'componentes/img/'
             ]
         };
 
