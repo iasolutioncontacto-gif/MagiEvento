@@ -70,7 +70,7 @@
                 'componentes/img/servicios/Graduaciones/3.png'
             ],
             'Celebraciones': [
-                'componentes/img/servicios/celebraciones/1.png',
+                'componentes/img/servicios/Graduaciones/1.png',
                 'componentes/img/servicios/celebraciones/2.png',
                 'componentes/img/servicios/celebraciones/3.png'
             ]
